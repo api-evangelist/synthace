@@ -1,0 +1,79 @@
+generated: '2026-08-29'
+method: probed
+source: >-
+  Direct unauthenticated GET of each /.well-known/ path on both Synthace hosts,
+  2026-08-29. No path returned a document.
+note: >-
+  Nothing was served. www.synthace.com is a HubSpot CMS that returns a real 404 (HTML
+  error page) for every /.well-known/ path. antha.com - the Antha platform application -
+  is a single-page app whose nginx front end answers 200 with the identical 1,677-byte
+  index.html shell for EVERY unknown path, including a deliberate control request to
+  /zzz-ae-control-<random>. Those 200s are SPA catch-alls, not documents, and are
+  recorded as misses. No WellKnown or SecurityTxt pointer is emitted, because no
+  well-known document exists to point at.
+control_probe:
+  host: antha.com
+  path: /zzz-ae-control-24173
+  status: 200
+  bytes: 1677
+  content_type: text/html
+  conclusion: >-
+    SPA catch-all confirmed; any 200 on antha.com with 1677 bytes of text/html is the
+    application shell, not a served document.
+hosts:
+- host: www.synthace.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: antha.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    note: SPA shell (1677 bytes, text/html) identical to control - not a document
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    note: SPA shell identical to control - not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    note: SPA shell identical to control - not a document
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: null
+    note: SPA shell identical to control - not a document
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    note: SPA shell identical to control - not a document
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    note: SPA shell identical to control - not an AgentCard
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    note: SPA shell identical to control - not an AgentCard

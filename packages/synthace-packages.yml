@@ -1,0 +1,32 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  Registry searches on npm (registry.npmjs.org name lookup + /-/v1/search), PyPI
+  (pypi.org/pypi/<pkg>/json), crates.io, RubyGems, plus the GitHub org
+  github.com/Synthace and the whole of www.synthace.com (161 sitemap URLs), 2026-08-29.
+package_count: 0
+official_sdk_count: 0
+packages: []
+note: >-
+  Synthace publishes no first-party client library on any registry. Searched npm for
+  `synthace`, `antha`, `antha-lang` and `@synthace/*` (npm `antha` exists but is
+  electrovir/antha, an unrelated third-party expression engine - not Synthace's), PyPI
+  for `synthace` and `antha` (both 404), crates.io for `synthace` (0 results), and
+  RubyGems. The github.com/Synthace organization is real and public but holds only five
+  repositories - expr-eval, regression, drone, drone-autoscaler and tesoro-fork - which
+  are internal tooling and forks of third-party infrastructure projects, not API client
+  libraries. The company's original open-source Antha language repository
+  (github.com/antha-lang/antha) is no longer resolvable; the org returns 404. No SDKs
+  pointer is emitted because no first-party SDK exists to point at.
+registries_searched:
+- registry: npm
+  result: no first-party package
+- registry: pypi
+  result: no first-party package
+- registry: crates.io
+  result: no first-party package
+- registry: rubygems
+  result: no first-party package
+- registry: github
+  org: https://github.com/Synthace
+  result: 5 public repos, all internal tooling or third-party forks; no client library

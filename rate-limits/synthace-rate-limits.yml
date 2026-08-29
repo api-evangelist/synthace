@@ -1,0 +1,26 @@
+generated: '2026-08-29'
+method: searched
+source: https://www.synthace.com/
+limit_count: 0
+rate_limits: []
+response_headers: []
+note: >-
+  No rate limits are documented, because Synthace publishes no API documentation of any
+  kind. There is no developer portal, no API reference and no docs host - the developer
+  subdomains api., docs. (which resolves only to a Google Workspace Drive login for
+  @synthace.com staff), and developer. do not serve a public site. The Antha platform's
+  own API at https://antha.com/api/ answers every unauthenticated request with
+  `{"error":"Unauthorized"}` (HTTP 401, application/json, x-powered-by: Express) and
+  returns no RateLimit-*, X-RateLimit-* or Retry-After header on that response, so no
+  runtime rate-limit signal is observable without credentials.
+evidence:
+- url: https://antha.com/api/v1
+  status: 401
+  finding: >-
+    JSON 401 with no rate-limit headers; response headers were
+    x-powered-by, trace-id, vary, access-control-allow-credentials, cache-control,
+    content-security-policy, strict-transport-security, x-content-type-options,
+    x-frame-options
+- url: https://www.synthace.com/sitemap.xml
+  status: 200
+  finding: no developer/reference URL in 161 sitemap entries

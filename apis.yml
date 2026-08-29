@@ -1,16 +1,31 @@
 aid: synthace
 name: Synthace
-description: 'Synthace is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Synthace is a London-headquartered life-science software company (offices in London, Boston
+  and San Diego) behind Antha, a cloud digital-experiment platform for R&D teams. The platform
+  lets biologists design multifactorial Design of Experiments (DOE) and Quality by Design (QbD)
+  studies, simulate them ahead of time, compile them into machine-executable protocols that run
+  on third-party lab automation hardware (Tecan, Formulatrix, SPT Labtech and others), and
+  capture the resulting experimental data and metadata in a single structured, AI-ready record.
+  Synthace is delivered as an authenticated tenant application at antha.com rather than as a
+  developer product - as of 2026-08-29 the company publishes no developer portal, no API
+  reference, no SDKs and no machine-readable contract on any public host, and the platform's
+  own /api/* surface answers every unauthenticated request with a blanket JSON 401.
+image: https://www.synthace.com/hubfs/nb-icons/synthace-logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/synthace/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-29'
 modified: '2026-08-29'
 tags:
+- Life Sciences
+- Biotechnology
+- Laboratory Automation
+- Design of Experiments
+- Research and Development
+- Scientific Data
+- Cloud Platform
 - Company
 apis: []
 maintainers:
@@ -19,5 +34,65 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/synthace-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.synthace.com/
+- type: Blog
+  url: https://www.synthace.com/blog
+- type: BlogRSS
+  url: https://www.synthace.com/blog/rss.xml
+- type: About
+  url: https://www.synthace.com/about
+- type: ContactUs
+  url: https://www.synthace.com/contact-us
+- type: PrivacyPolicy
+  url: https://www.synthace.com/privacy-notice
+- type: GitHubOrganization
+  url: https://github.com/Synthace
+- type: LinkedIn
+  url: https://www.linkedin.com/company/synthace
+- type: Twitter
+  url: https://x.com/synthace
+- type: YouTube
+  url: https://www.youtube.com/@synthace
+- type: Partners
+  url: https://www.synthace.com/about/partners
+- type: News
+  url: https://www.synthace.com/news-room
+- type: Packages
+  url: packages/synthace-packages.yml
+- type: Plans
+  url: plans/synthace-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/synthace-rate-limits.yml
+- type: LLMsTxt
+  url: llms/synthace-llms.txt
+x-enrichment:
+  date: '2026-08-29'
+  status: minimal
+  artifacts_added: 6
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    Synthace ships no developer surface at all - its Antha platform at antha.com is a
+    tenant-only single-page app whose entire /api/* namespace answers every
+    unauthenticated request with a blanket JSON 401, and the docs.synthace.com hostname
+    resolves to a Google Workspace Drive sign-in for @synthace.com staff rather than to
+    a public reference.
+  evidence:
+  - url: https://antha.com/api/v1
+    status: 401
+  - url: https://antha.com/api/openapi.json
+    status: 401
+  - url: http://docs.synthace.com/
+    status: 302
+  - url: https://www.synthace.com/openapi.json
+    status: 404
+  - url: https://www.synthace.com/llms.txt
+    status: 404
+  - url: https://www.synthace.com/.well-known/agent-card.json
+    status: 404
+  checked: '2026-08-29'

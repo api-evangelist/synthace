@@ -1,0 +1,20 @@
+generated: '2026-08-29'
+method: searched
+source: https://www.synthace.com/
+plan_count: 0
+plans: []
+pricing_model: contact-sales
+note: >-
+  Synthace publishes no pricing page and no plan tiers. The full 161-URL sitemap at
+  https://www.synthace.com/sitemap.xml contains no /pricing, /plans or /packages path,
+  and https://www.synthace.com/terms returns 404. The site nav offers no pricing, no
+  sign-up and no self-serve trial; the only commercial entry point is the contact form
+  at https://www.synthace.com/contact-us. This is an enterprise contact-sales motion
+  with no published price, not an omission in our search.
+evidence:
+- url: https://www.synthace.com/sitemap.xml
+  status: 200
+  finding: 161 URLs, none matching pricing/plans
+- url: https://www.synthace.com/contact-us
+  status: 200
+  finding: contact-sales form is the only commercial path
