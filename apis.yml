@@ -11,6 +11,19 @@ description: >-
   developer product - as of 2026-08-29 the company publishes no developer portal, no API
   reference, no SDKs and no machine-readable contract on any public host, and the platform's
   own /api/* surface answers every unauthenticated request with a blanket JSON 401.
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - rate-limits
+  - security
+  generated: '2026-09-02'
+  method: derived
 image: https://www.synthace.com/hubfs/nb-icons/synthace-logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/synthace/refs/heads/main/apis.yml
 x-type: company
